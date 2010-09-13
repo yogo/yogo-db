@@ -14,4 +14,4 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2010 Ryan Heimbuch. See LICENSE for details.
+Copyright (c) 2010 Ryan Heimbuch, Montana State University. See LICENSE for details.
