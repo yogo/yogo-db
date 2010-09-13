@@ -1,18 +1,24 @@
 require 'rubygems'
+
+begin
+  require 'bundler'
+  Bundler.setup
+rescue LoadError
+  puts "Bundler is not intalled. Install with: gem install bundler"
+end
+
 require 'rake'
 
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "yogo-db"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = "Yogo DB Rest components"
+    gem.description = "Restful interface to yogo data components"
     gem.email = "rheimbuch@gmail.com"
-    gem.homepage = "http://github.com/rheimbuch/yogo-db"
+    gem.homepage = "http://github.com/yogo/yogo-db"
     gem.authors = ["Ryan Heimbuch"]
-    gem.add_development_dependency "rspec", ">= 1.2.9"
-    gem.add_development_dependency "yard", ">= 0"
-    gem.add_development_dependency "cucumber", ">= 0"
+    gem.add_bundler_dependencies
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
