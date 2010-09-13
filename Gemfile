@@ -11,5 +11,15 @@ group :development do
   gem "rspec"
   gem "cucumber"
   gem "yard"
-  gem "ruby-debug"
+  
+  platforms(:mri_19) do
+    gem 'ruby-debug19', :require => 'ruby-debug'
+    gem 'rack-debug19', :require => 'rack-debug'
+  end
+  
+  platforms(:mri_18) do
+    gem "ruby-debug"
+    gem "rack-debug"
+  end
+  
 end
