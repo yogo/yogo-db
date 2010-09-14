@@ -10,8 +10,8 @@ end
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 require 'yogo/db'
-require 'spec'
-require 'spec/autorun'
+require 'rspec/core'
+require 'autotest/rspec2'
 require 'rack/test'
 require 'rack/mock'
 
@@ -22,6 +22,6 @@ rescue Exception => e
 end
 
 
-Spec::Runner.configure do |config|
+Rspec.configure do |config|
   config.include Rack::Test::Methods
 end
