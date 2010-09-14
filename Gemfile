@@ -9,6 +9,7 @@ group :development do
   gem "rake"
   gem "jeweler"
   gem "rspec"
+  gem "rack-test"
   gem "cucumber"
   gem "yard"
   
