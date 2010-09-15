@@ -1,0 +1,5 @@
+# This is only for this particular app
+
+development:
+  adapter: sqlite3
+  path: db/development.sqlite3
