@@ -23,5 +23,5 @@ end
 
 
 Rspec.configure do |config|
-  config.include Rack::Test::Methods
+  config.include Yogo::Spec::Helpers
 end
