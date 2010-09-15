@@ -1,11 +1,20 @@
 source :rubygems
 
-RSPEC_VERSION = '2.0.0.beta.22'
+RSPEC_VERSION = '~> 2.0.0.beta.22'
 
+gem 'sinatra'
 gem 'rack'
+gem 'dm-core'
+gem 'dm-migrations'
+gem 'dm-validations'
 
-gem 'yogo-datamapper',        :git => 'git://github.com/yogo/yogo-datamapper.git'
+gem 'dm-sqlite-adapter', :require => nil
 
+gem 'yogo-datamapper',        :git => 'git://github.com/yogo/yogo-datamapper.git', 
+                              :require => nil
+
+
+gem 'json'
 
 group :development do
   gem "rake"
@@ -25,5 +34,4 @@ group :development do
     gem "ruby-debug"
     gem "rack-debug"
   end
-  
 end
