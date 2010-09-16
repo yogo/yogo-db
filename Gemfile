@@ -4,11 +4,15 @@ RSPEC_VERSION = '~> 2.0.0.beta.22'
 
 gem 'sinatra'
 gem 'rack'
+
+gem 'activesupport' # For Datamapper
+
 gem 'dm-core'
 gem 'dm-migrations'
 gem 'dm-validations'
 
 gem 'dm-sqlite-adapter', :require => nil
+# gem 'dm-postgres-adapter',    :require => nil
 
 gem 'yogo-datamapper',        :git => 'git://github.com/yogo/yogo-datamapper.git', 
                               :require => nil

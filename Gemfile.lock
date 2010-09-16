@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/yogo/yogo-datamapper.git
-  revision: 56c0be2835301f3078be35e718d92e4c8439f50d
+  revision: b2ff5468ad51c95b87bbbe809195f2b61e63db53
   specs:
     yogo-datamapper (0.1.0)
       dm-aggregates (~> 1.0.0)
@@ -16,6 +16,7 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
+    activesupport (3.0.0)
     addressable (2.2.1)
     archive-tar-minitar (0.5.2)
     autotest (4.3.2)
@@ -117,15 +118,16 @@ GEM
     trollop (1.16.2)
     uuidtools (2.1.1)
     yard (0.6.1)
-    yogo-operation (0.1.1)
+    yogo-operation (0.1.2)
       dataflow
       yogo-support (~> 0.1.0)
-    yogo-support (0.1.0)
+    yogo-support (0.1.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport
   autotest
   cucumber
   dm-core
