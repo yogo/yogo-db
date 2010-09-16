@@ -1,7 +1,5 @@
 # encoding: utf-8
 
-require 'yogo/model_lookup'
-
 # This is inspired by Warden's spec helpers
 module Yogo
   module Spec
@@ -9,7 +7,7 @@ module Yogo
     
       def env_with_params(path = "/", params = {})
         method = params.fetch(:method, "GET")
-        Rack::MockRequest.env_for(path, :input => Rack::Utils.build_query(params),
+        ::Rack::MockRequest.env_for(path, :input => ::Rack::Utils.build_query(params),
                                         'HTTP_VERSION' => '1.1',
                                         'REQUEST_METHOD' => "#{method}")
       end
@@ -17,8 +15,8 @@ module Yogo
       def setup_rack(app = default_app, middleware = {}, &block)
         app ||= block if block_given?
       
-        Rack::Builder.new do
-          use Yogo::ModelLookup, :paths => ['schema']
+        ::Rack::Builder.new do
+          use Yogo::Rack::ModelLookup, :paths => ['schema']
           run app
         end
       
