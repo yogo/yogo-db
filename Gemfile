@@ -9,7 +9,7 @@ gem 'activesupport' # For Datamapper
 
 gem 'dm-core'
 gem 'dm-migrations'
-gem 'dm-serializer'
+# gem 'dm-serializer'
 gem 'dm-validations'
 
 gem 'dm-sqlite-adapter', :require => nil
