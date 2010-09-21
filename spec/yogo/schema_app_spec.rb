@@ -26,7 +26,7 @@ describe Yogo::SchemaApp do
       schema = Factory.create(:schema)
       get "/schema/#{schema.name}"
       last_response.should be_ok
-      last_response.body.should eql schema.to_json
+      last_response.body.should eql( { :content => schema }.to_json )
     end
     
     it "should give a 404 error when the schema does not exist" do
@@ -47,7 +47,13 @@ describe Yogo::SchemaApp do
       last_response.should be_ok
     end
     
-    it "should not create a new schema with invalid data"
+    it "should not create a new schema with invalid data" do
+      post '/schema', {:name => 'test_item', 
+        :bad_op => 42}.to_json
+        
+      last_response.status.should eql(401)
+      last_response.body.should eql("Invalid Format")
+    end
   end
   
   describe "when putting to /schema/:id" do
@@ -57,7 +63,17 @@ describe Yogo::SchemaApp do
   end
   
   describe "when deleting /schema/:id" do
-    it "should delete the schema of the given id"
-    it "should not delete anything when an invalid ID is given" 
+    it "should delete the schema of the given id" do
+      schema = Factory.create(:schema)
+      delete "/schema/#{schema.name}"
+      
+      last_response.should be_ok
+    end
+    it "should not delete anything when an invalid ID is given" do
+      delete "/schema/a_bad_id"
+      
+      last_response.should_not be_ok
+      last_response.status.should eql 404
+    end
   end
 end

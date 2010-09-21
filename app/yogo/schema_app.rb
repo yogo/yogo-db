@@ -15,11 +15,11 @@ module Yogo
     end
   
     get '/schema/?' do
-      Schema.all.to_json
+      { :content => Schema.all }.to_json
     end
   
     get '/schema/:model_id/?' do
-      env['yogo.schema'].to_json
+      { :content => env['yogo.schema'] }.to_json
     end
   
     post '/schema' do
@@ -34,15 +34,16 @@ module Yogo
     end
     
     put '/schema/:model_id' do
-      'OK'.to_json
+      opts = Schema.parse_json(request.body.read) rescue nil
+      halt(401, 'Invalid Format') if opts.nil?
+      
+      halt(500, 'Could not update schema') unless env['yogo.schema'].attributes(opts)
+
+      { :content => env['yogo.schema'] }.to_json
     end
     
     delete '/schema/:model_id' do
-      if env['yogo.schema'].destroy
-        'OK'.to_json
-      else
-        'FAIL'.to_json
-      end
+      env['yogo.schema'].destroy
     end
   
   end
