@@ -20,14 +20,13 @@ gem 'yogo-datamapper',        :git => 'git://github.com/yogo/yogo-datamapper.git
 
 gem 'json'
 
-group :development do
+group :development, :test do
   gem "rake"
   gem "jeweler"
-  gem "rspec",                RSPEC_VERSION
-  gem "autotest"
-  gem "rack-test"
-  gem "cucumber"
+
   gem "yard"
+  
+  gem 'sinatra-reloader', :require => 'sinatra/reloader'
   
   platforms(:mri_19) do
     gem 'ruby-debug19',       :require => 'ruby-debug'
@@ -38,4 +37,12 @@ group :development do
     gem "ruby-debug"
     gem "rack-debug"
   end
+end
+
+group :test do
+  gem "rspec",                RSPEC_VERSION
+  gem "autotest"
+  gem "rack-test"
+  gem "cucumber"
+  gem 'factory_girl'
 end
