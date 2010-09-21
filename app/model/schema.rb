@@ -28,6 +28,19 @@ class Schema
     # @data_model ||= gen_model
   end
   
+  def to_url
+    "/schema/#{self.name}"
+  end
+  
+  def to_json(*a)
+    {
+      :guid => self.to_url,
+      :name => self.name,
+      :op_defs => self.op_defs,
+      
+    }.to_json(*a)
+  end
+  
   REQUIRED_JSON_KEYS=[:name, :op_defs]
   
   def self.parse_json(body)
