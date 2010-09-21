@@ -1,6 +1,6 @@
 # encoding: utf-8
 require 'dm-core'
-require 'app/model/schema'
+require 'model/schema'
 
 module Yogo
   module Rack
@@ -15,8 +15,9 @@ module Yogo
         if env['PATH_INFO'] =~ @base_regexp
           model_id = $2
           env['yogo.schema'], env['yogo.resource'] = get_model(model_id)
+          return [ 404, {'Content-Type' => 'text/plain'}, ["#{model_id} not found"] ] if env['yogo.schema'].nil?
         end
-    
+        
         @app.call(env)
       end
 
@@ -26,7 +27,7 @@ module Yogo
         config = Schema.first(:name => model_id)
     
         unless config.nil?
-          return config, config.generate_model
+          return config, config.data_model
         end
       end
       
