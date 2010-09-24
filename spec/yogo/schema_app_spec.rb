@@ -58,7 +58,23 @@ describe Yogo::SchemaApp do
   end
   
   describe "when putting to /schema/:id" do
-    it "should replace the schema with the given payload"
+    before(:all) do
+      @cur_schema = Factory.create(:schema)
+    end
+    
+    after(:all) do
+      @cur_schema.destroy
+    end
+    
+    it "should replace the schema with the given payload" do
+      updated_schema = {'name' => @cur_schema.name,
+        'operations' => [['add/property', 'id', 'Serial'],['add/property', 'description', 'Text'] ]}
+      put "/schema/#{@cur_schema.name}", updated_schema.to_json
+        
+      last_response.status.should eql(200)
+      JSON.parse(last_response.body)["content"].should eql updated_schema.merge('guid' => "/schema/#{@cur_schema.name}")
+    end
+    
     it "should not update when given an invalid payload"
     it "should return an error when an invalid ID is given"
   end
