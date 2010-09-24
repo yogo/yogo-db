@@ -24,6 +24,7 @@ describe Yogo::SchemaApp do
   describe "when retriving /schema/:id" do
     it "should retrieve retrieve a particular schema" do
       schema = Factory.create(:schema)
+
       get "/schema/#{schema.name}"
       last_response.should be_ok
       last_response.body.should eql( { :content => schema }.to_json )
@@ -39,7 +40,7 @@ describe Yogo::SchemaApp do
   describe "when posting to /schema" do
     it "should create a new schema with the provided id" do
       post '/schema', {:name => 'test_item', 
-        :op_defs => [['add/property', :id, 'Serial'],['add/property', :name, 'String']]}.to_json
+        :operations => [['add/property', :id, 'Serial'],['add/property', :name, 'String']]}.to_json
 
       last_response.status.should eql(201)
       
