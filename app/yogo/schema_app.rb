@@ -34,12 +34,13 @@ module Yogo
     end
     
     put '/schema/:model_id' do
+      schema = env['yogo.schema']
       opts = Schema.parse_json(request.body.read) rescue nil
       halt(401, 'Invalid Format') if opts.nil?
       
-      halt(500, 'Could not update schema') unless env['yogo.schema'].attributes(opts)
+      halt(500, 'Could not update schema') unless schema.update(opts)
 
-      { :content => env['yogo.schema'] }.to_json
+      { :content => schema }.to_json
     end
     
     delete '/schema/:model_id' do
