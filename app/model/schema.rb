@@ -11,7 +11,7 @@ class Schema
 
   property :name,                       String,     :required => true, :key => true, :unique => true
   
-  property :op_defs,                    Yaml,       :lazy => true, :default => []
+  property :op_defs,                    Yaml,       :lazy => false, :default => []
   
   before :save, :set_op_defs
   before :destroy, :destroy_data_model_bucket
@@ -22,10 +22,18 @@ class Schema
     @__operation_definitions ||= attribute_get(:op_defs)
   end
   
+  # Set only the operations we want, don't add to them
+  def operations=(ops)
+    # Clear the current operations
+    @__operation_definitions = []
+    # Load operations with the set given
+    ops.each{|op| operation(*op) }
+  end
+  
   def data_model
-    @data_model ||= by_need { gen_model }
+    # @data_model ||= by_need { gen_model }
      # by_need { gen_model }
-    # @data_model ||= gen_model
+    @data_model ||= gen_model
   end
   
   def to_url
@@ -36,17 +44,17 @@ class Schema
     {
       :guid => self.to_url,
       :name => self.name,
-      :op_defs => self.op_defs,
+      :operations => self.operation_definitions,
       
     }.to_json(*a)
   end
   
-  REQUIRED_JSON_KEYS=[:name, :op_defs]
+  REQUIRED_JSON_KEYS=[:name, :operations]
   
   def self.parse_json(body)
     json = JSON.parse(body)
 
-    ret = { :name => json['name'], :op_defs => json['op_defs'] }
+    ret = { :name => json['name'], :operations => json['operations'] }
 
     return nil if REQUIRED_JSON_KEYS.any? { |r| ret[r].nil? }
     
@@ -69,12 +77,12 @@ class Schema
         end
       RUBY
     end
-    
+
     return self.to_proc[base_model]
   end
   
   def set_op_defs
-    attribute_set(:op_defs, @__operation_definitions)
+    attribute_set(:op_defs, operation_definitions)
     @data_model = nil
   end
   

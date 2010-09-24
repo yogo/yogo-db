@@ -5,10 +5,7 @@ require File.expand_path(File.dirname(__FILE__) + '/..' + '/spec_helper')
 describe Schema do
   
   before(:all) do
-    @schema = Schema.new(:name => 'sample_id')
-    @schema.operation('add/property', :id, 'Serial')
-    @schema.operation('add/property', :name, 'String')
-    @schema.save
+    @schema = Factory.create(:schema)
   end
   
   after(:all) do
@@ -31,6 +28,13 @@ describe Schema do
     @schema.data_model.auto_upgrade!
     # @schema.data_model.i.should_not eql original_model
     @schema.data_model.properties.should_not eql original_model.properties
+  end
+  
+  it "should update the attributes" do
+    updated_schema = {:name => @schema.name,
+      :operations => [['add/property', :id, 'Serial'],['add/property', :description, 'Text'] ]}
+    @schema.update(updated_schema)
+    @schema.operation_definitions.should eql updated_schema[:operations]
   end
   
   it "should remove the data_model data while being destroyed"
