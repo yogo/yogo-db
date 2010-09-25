@@ -75,8 +75,17 @@ describe Yogo::SchemaApp do
       JSON.parse(last_response.body)["content"].should eql updated_schema.merge('guid' => "/schema/#{@cur_schema.name}")
     end
     
-    it "should not update when given an invalid payload"
-    it "should return an error when an invalid ID is given"
+    it "should not update when given an invalid payload" do
+      put "/schema/#{@cur_schema.name}", "some really bad data"
+      
+      last_response.should_not be_ok
+    end
+    it "should return an error when an invalid ID is given" do
+      put '/schema/a_bad_id', "not so good data"
+      
+      last_response.should_not be_ok
+      last_response.status.should eql(404)
+    end
   end
   
   describe "when deleting /schema/:id" do
