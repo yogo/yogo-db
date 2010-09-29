@@ -13,7 +13,7 @@ gem 'dm-migrations'
 gem 'dm-validations'
 
 gem 'dm-sqlite-adapter', :require => nil
-# gem 'dm-postgres-adapter',    :require => nil
+gem 'dm-postgres-adapter',    :require => nil
 
 gem 'yogo-datamapper',        :git => 'git://github.com/yogo/yogo-datamapper.git', 
                               :require => nil
