@@ -1,5 +1,19 @@
 # This is only for this particular app
 
 development:
-  adapter: sqlite3
-  path: db/development.sqlite3
+  adapter: postgres
+  database: yogo_development
+  host: localhost
+  
+test:
+  adapter: postgres
+  database: yogo_test
+  host: localhost
+  
+# development:
+#   adapter: sqlite3
+#   database: db/devlopment.sqlite3
+# 
+# test:
+#   adapter: sqlite3
+#   database: db/test.sqlite3
