@@ -12,10 +12,7 @@ describe "Model lookup" do
   describe 'with an existing configuration' do
     
     before(:all) do
-      @configuration = Schema.new(:name => 'sample_id')
-      @configuration.operation('add/property', :id, 'Serial')
-      @configuration.operation('add/property', :name, 'String')
-      @configuration.save
+      @configuration = Factory.create(:schema)
     end
     
     after(:all) do
@@ -23,27 +20,27 @@ describe "Model lookup" do
     end
     
     it "should add a yogo.resource key to the environment hash" do
-      env = env_with_params('/schema/sample_id')
+      env = env_with_params("/schema/#{@configuration.name}")
       response = app.call(env)
       env.should be_a Hash
       env.should have_key('yogo.resource')
     end
 
     it "should add a yogo.schema key to the environment hash" do
-      env = env_with_params('/schema/sample_id')
+      env = env_with_params("/schema/#{@configuration.name}")
       response = app().call(env)
       env.should be_a Hash
       env.should have_key('yogo.schema')
     end
 
     it "should point to a datamapper model" do
-      env = env_with_params('/schema/sample_id')
+      env = env_with_params("/schema/#{@configuration.name}")
       response = app.call(env)
       env['yogo.resource'].should be_kind_of(DataMapper::Model)
     end
     
     it "should set a model when more then a path was specified" do
-      env = env_with_params('/schema/sample_id/more_path')
+      env = env_with_params("/schema/#{@configuration.name}/more_path")
       response = app.call(env)
       env['yogo.resource'].should be_kind_of(DataMapper::Model)
     end
