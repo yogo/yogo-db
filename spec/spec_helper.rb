@@ -37,5 +37,5 @@ Rspec.configure do |config|
   
   # config.mock_with :rspec
   # 
-  config.before(:all) { DataMapper.auto_migrate! }
+  config.before(:all) { DataMapper.finalize.auto_migrate! }
 end
