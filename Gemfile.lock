@@ -13,6 +13,14 @@ GIT
       yogo-operation
       yogo-support
 
+GIT
+  remote: git://github.com/yogo/yogo-operation.git
+  revision: f112afd49b2b71996f30f462d23fe10889b43ed8
+  specs:
+    yogo-operation (0.1.2)
+      dataflow
+      yogo-support (~> 0.1.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -139,9 +147,6 @@ GEM
     trollop (1.16.2)
     uuidtools (2.1.1)
     yard (0.6.1)
-    yogo-operation (0.1.2)
-      dataflow
-      yogo-support (~> 0.1.0)
     yogo-support (0.1.1)
 
 PLATFORMS
@@ -171,3 +176,4 @@ DEPENDENCIES
   sinatra-reloader
   yard
   yogo-datamapper!
+  yogo-operation!
