@@ -8,7 +8,11 @@ rescue LoadError
 end
 
 require 'rake'
-require 'rack-debug/tasks'
+begin
+  require 'rack-debug/tasks'
+rescue LoadError
+
+end
 
 begin
   require 'jeweler'
