@@ -1,5 +1,6 @@
 require 'dm-types'
 require 'yogo/datamapper/model/configuration'
+require 'yogo/custom_ops'
 
 class Schema
   include ::DataMapper::Resource
@@ -68,14 +69,18 @@ class Schema
   end
   
   def to_proc
+    base_op = Yogo::DataMapper::Model::Operations['add/default_properties']
+    # base_op = Yogo::DataMapper::Model::Operations['add/yogo_methods']
     ops = operation_definitions.map{|op_def| Yogo::DataMapper::Model::Operations[op_def.first] }
     partial_ops = []
     ops.each_with_index do |op, i|
       next unless op
       partial_ops[i] = op.partial(X, *operation_definitions[i][1..-1])
     end
+    partial_ops << Yogo::DataMapper::Model::Operations['add/yogo_methods']
     partial_ops.compact!
-    partial_ops.reduce{|composed, partial_op| composed * partial_op}
+    partial_ops.reduce(base_op){|composed, partial_op| composed * partial_op}
+
   end
   
   private
@@ -85,6 +90,7 @@ class Schema
     model_name = attribute_get(:name)
     base_model = ::DataMapper::Model.new do
       class_eval <<-RUBY, __FILE__, __LINE__ + 1
+
         def self.default_storage_name
           "#{id}"
         end
@@ -94,8 +100,11 @@ class Schema
         end
       RUBY
     end
-
-    return self.to_proc[base_model]
+    # Yogo::DataMapper::Model::Operations::DefaultMethods[base_model]
+    self.to_proc[base_model]
+    base_model.schema = self
+    base_model.auto_upgrade!
+    return base_model
   end
   
   def reset_data_model
