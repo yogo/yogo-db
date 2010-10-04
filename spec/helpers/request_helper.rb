@@ -16,7 +16,7 @@ module Yogo
         app ||= block if block_given?
       
         ::Rack::Builder.new do
-          use Yogo::Rack::ModelLookup, :paths => ['schema']
+          use Yogo::Rack::ModelLookup, :paths => ['schema', 'data']
           run app
         end
       
