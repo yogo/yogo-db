@@ -65,13 +65,26 @@ module Yogo
           self.class.unlabeled_properties
         end
 
-        def to_json(*a)
+        def to_json(*args)
+          options = args.first || {}
+          options = options.to_h if options.respond_to?(:to_h)
+
+          result = as_json(*args)
+
+          if options.fetch(:to_json, true)
+            result.to_json
+          else
+            result
+          end
+        end
+
+        def as_json(*a)
           data = labeled_properties.reduce({}){ |result, property| result.merge(property.name => __send__(property.name)) }
           default_data = unlabeled_properties.reduce({}){ |result, property| result.merge(property.name => __send__(property.name)) }
           default_data.merge({
             :url => self.to_url,
             :data => data
-          }).to_json(*a)
+          })
         end
       end
       

@@ -7,7 +7,7 @@ module Yogo
     end
 
     get '/schema/?' do
-      { :content => Schema.all }.to_json
+      { :content => Schema.all.to_json(:to_json => false) }.to_json
     end
 
     get '/schema/:model_id/?' do
@@ -21,7 +21,7 @@ module Yogo
 
       halt(500, 'Could not save schema') unless schema.save
 
-      response['Location'] = "/schema/#{schema.name}"
+      response['Location'] = schema.to_url
       response.status = 201
     end
 

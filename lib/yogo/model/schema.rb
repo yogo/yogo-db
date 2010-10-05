@@ -47,13 +47,25 @@ class Schema
     "/schema/#{self.name}"
   end
   
-  def to_json(*a)
+  def to_json(*args)
+    options = args.first || {}
+    options = options.to_h if options.respond_to?(:to_h)
+    
+    result = as_json(*args)
+    
+    if options.fetch(:to_json, true)
+      result.to_json
+    else
+      result
+    end
+  end
+  
+  def as_json(*a)
     {
       :guid => self.to_url,
       :name => self.name,
       :operations => self.operation_definitions,
-      
-    }.to_json(*a)
+    }
   end
   
   REQUIRED_JSON_KEYS=[:name, :operations]
