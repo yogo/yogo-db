@@ -1,11 +1,11 @@
 source :rubygems
 
-RSPEC_VERSION = '~> 2.0.0.beta.22'
+RSPEC_VERSION = '~> 2.0.0.rc'
 
 gem 'sinatra'
 gem 'rack'
 
-gem 'activesupport' # For Datamapper
+gem 'activesupport', :require => 'active_support' # For Datamapper
 
 gem 'dm-core'
 gem 'dm-migrations'
@@ -19,12 +19,16 @@ gem 'yogo-datamapper',        :git => 'git://github.com/yogo/yogo-datamapper.git
 
 gem 'json'
 
+gem 'racksh', :require => nil
+
 group :development, :test do
   gem "rake"
   gem "jeweler"
-  gem "yard"
-  gem 'sinatra-reloader',     :require => 'sinatra/reloader'
 
+  gem "yard"
+  
+  gem 'sinatra-reloader', :require => 'sinatra/reloader'
+  
   platforms(:mri_19) do
     gem 'ruby-debug19',       :require => 'ruby-debug'
     gem 'rack-debug19',       :require => 'rack-debug'
