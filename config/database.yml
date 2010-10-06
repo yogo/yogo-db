@@ -4,7 +4,7 @@ development:
   adapter: postgres
   database: yogo_development
   host: localhost
-  
+
 test:
   adapter: postgres
   database: yogo_test
@@ -13,7 +13,7 @@ test:
 # development:
 #   adapter: sqlite3
 #   database: db/devlopment.sqlite3
-# 
+#
 # test:
 #   adapter: sqlite3
 #   database: db/test.sqlite3
