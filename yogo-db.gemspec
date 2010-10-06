@@ -26,27 +26,27 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
-     "app/model/schema.rb",
-     "app/yogo/data_app.rb",
-     "app/yogo/schema_app.rb",
      "config.ru",
      "config/database.yml",
      "config/datamapper.rb",
-     "config/requires.rb",
      "features/step_definitions/yogo-db_steps.rb",
      "features/support/env.rb",
      "features/yogo-db.feature",
      "lib/yogo/custom_ops.rb",
      "lib/yogo/data/default_methods.rb",
+     "lib/yogo/data_app.rb",
      "lib/yogo/db/.gitdir",
+     "lib/yogo/model/schema.rb",
      "lib/yogo/rack/model_lookup.rb",
+     "lib/yogo/schema_app.rb",
      "spec/factories/schema.rb",
      "spec/helpers/request_helper.rb",
      "spec/model/schema_spec.rb",
      "spec/spec_helper.rb",
      "spec/yogo/data_app_spec.rb",
      "spec/yogo/model_lookup_spec.rb",
-     "spec/yogo/schema_app_spec.rb"
+     "spec/yogo/schema_app_spec.rb",
+     "yogo-db.gemspec"
   ]
   s.homepage = %q{http://github.com/yogo/yogo-db}
   s.rdoc_options = ["--charset=UTF-8"]
@@ -58,7 +58,7 @@ Gem::Specification.new do |s|
      "spec/helpers/request_helper.rb",
      "spec/model/schema_spec.rb",
      "spec/spec_helper.rb",
-     "spec/yogo/data_app_spec.rb",
+     "spec/yogo/data_app_spec_spec.rb",
      "spec/yogo/model_lookup_spec.rb",
      "spec/yogo/schema_app_spec.rb"
   ]
