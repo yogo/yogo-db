@@ -58,7 +58,7 @@ Gem::Specification.new do |s|
      "spec/helpers/request_helper.rb",
      "spec/model/schema_spec.rb",
      "spec/spec_helper.rb",
-     "spec/yogo/data_app_spec_spec.rb",
+     "spec/yogo/data_app_spec.rb",
      "spec/yogo/model_lookup_spec.rb",
      "spec/yogo/schema_app_spec.rb"
   ]
