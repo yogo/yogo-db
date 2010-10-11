@@ -1,6 +1,6 @@
 source :rubygems
 
-RSPEC_VERSION = '~> 2.0.0.rc'
+RSPEC_VERSION = '~> 2.0.0'
 
 gem 'sinatra'
 gem 'rack'
