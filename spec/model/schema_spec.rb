@@ -45,8 +45,8 @@ describe Schema do
 
     before(:all) do
 
-      @schema.operation('add/property', :address, 'String', :label => 'Address')
-      @schema.operation('add/property', :food, 'Boolean', :label => 'Likes Food?')
+      @schema.operation('add/property', :address, 'String', 'label' => 'Address')
+      @schema.operation('add/property', :food, 'Boolean', 'label' => 'Likes Food?')
       @schema.save
     end
 

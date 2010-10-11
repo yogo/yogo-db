@@ -22,7 +22,7 @@ module Yogo
           ret = {}
           # I don't think we care about other items passed back.
           json['data'].each_pair do |key,value|
-            property = props.select{|p| p.options[:label] == key || p.name == key}
+            property = props.select{|p| p.options['label'] == key || p.name.to_s == key}
             return nil unless property.length == 1
             # raise Exception, "There shouldn't be more the one property with the same label"
             ret[property.first.name] = value
@@ -31,11 +31,11 @@ module Yogo
         end
         
         def labeled_properties
-          properties.select{|p| !p.options[:label].nil? }
+          properties.select{|p| !p.options['label'].nil? }
         end
 
         def unlabeled_properties
-          properties.select{|p| p.options[:label].nil? }        
+          properties.select{|p| p.options['label'].nil? }        
         end
       end
 
@@ -48,7 +48,7 @@ module Yogo
         def attributes_by_label
           attributes = {}
           properties.each do |property|
-            label = property.options[:label]
+            label = property.options['label']
             next if label.nil?
             name = property.name
             next unless model.public_method_defined?(name)
