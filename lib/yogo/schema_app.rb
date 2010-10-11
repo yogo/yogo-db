@@ -14,7 +14,7 @@ module Yogo
       { :content => env['yogo.schema'] }.to_json
     end
 
-    post '/schema' do
+    post '/schema/?' do
       opts = Schema.parse_json(request.body.read) rescue nil
       halt(401, 'Invalid Format') if opts.nil?
       schema = Schema.new(opts)
