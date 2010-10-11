@@ -9,6 +9,8 @@ gem 'activesupport', :require => 'active_support' # For Datamapper
 
 gem 'dm-core'
 gem 'dm-migrations'
+gem 'dm-serializer'
+gem 'dm-timestamps'
 gem 'dm-validations'
 gem 'dm-sqlite-adapter',      :require => nil
 gem 'dm-postgres-adapter',    :require => nil

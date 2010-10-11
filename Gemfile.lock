@@ -56,6 +56,10 @@ GEM
     dm-postgres-adapter (1.0.2)
       dm-do-adapter (~> 1.0.2)
       do_postgres (~> 0.10.2)
+    dm-serializer (1.0.2)
+      dm-core (~> 1.0.2)
+      fastercsv (~> 1.5.3)
+      json_pure (~> 1.4)
     dm-sqlite-adapter (1.0.2)
       dm-do-adapter (~> 1.0.2)
       do_sqlite3 (~> 0.10.2)
@@ -160,7 +164,9 @@ DEPENDENCIES
   dm-core
   dm-migrations
   dm-postgres-adapter
+  dm-serializer
   dm-sqlite-adapter
+  dm-timestamps
   dm-validations
   factory_girl
   jeweler
