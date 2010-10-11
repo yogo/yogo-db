@@ -67,7 +67,7 @@ describe Yogo::SchemaApp do
 
     it "should replace the schema with the given payload" do
       updated_schema = {'name' => @cur_schema.name,
-        'operations' => [['add/property', 'id', 'Serial'],['add/property', 'description', 'Text'] ]}
+        'operations' => [['add/property', 'id', 'Integer'],['add/property', 'description', 'Text'] ]}
       put "/schema/#{@cur_schema.name}", updated_schema.to_json
 
       last_response.status.should eql(200)
