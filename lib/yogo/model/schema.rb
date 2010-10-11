@@ -112,7 +112,7 @@ class Schema
         end
       RUBY
     end
-    # Yogo::DataMapper::Model::Operations::DefaultMethods[base_model]
+
     self.to_proc[base_model]
     base_model.schema = self
     base_model.auto_upgrade!
