@@ -13,7 +13,8 @@ describe Yogo::SchemaApp do
   describe "when retrieving /schema" do
 
     it "should retrive a list of all schemas" do
-      get '/schema', :headers => {'accepts' => 'application/json'}
+      header 'accept', 'application/json'
+      get '/schema'
 
       last_response.should be_ok
       last_response.headers['content-type'].should eql 'application/json'
@@ -23,7 +24,7 @@ describe Yogo::SchemaApp do
   describe "when retriving /schema/:id" do
     it "should retrieve retrieve a particular schema" do
       schema = Factory.create(:schema)
-
+      header 'accept', 'application/json'
       get "/schema/#{schema.name}"
       last_response.should be_ok
       last_response.body.should eql( { :content => schema }.to_json )
