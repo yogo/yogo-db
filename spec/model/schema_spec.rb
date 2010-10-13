@@ -122,4 +122,15 @@ describe Schema do
       attributes.keys.should include('Address', 'Likes Food?')
     end
   end
+
+  describe "file handling" do
+    it "should beable to have a file added" do
+      @schema.operation('add/file', :my_file, {'label' => "My File"})
+      
+      @schema.save
+      lambda{
+        @schema.data_model.first
+      }.should_not raise_exception
+    end
+  end
 end

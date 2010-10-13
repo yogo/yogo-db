@@ -30,6 +30,8 @@ GEM
     autotest (4.4.1)
     backports (1.18.2)
     builder (2.1.2)
+    carrierwave (0.5.0)
+      activesupport (~> 3.0.0)
     columnize (0.3.1)
     cucumber (0.9.2)
       builder (~> 2.1.2)
@@ -160,6 +162,7 @@ PLATFORMS
 DEPENDENCIES
   activesupport
   autotest
+  carrierwave
   cucumber
   dm-core
   dm-migrations
