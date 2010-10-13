@@ -113,8 +113,8 @@ class Schema
       RUBY
     end
 
+    base_model.class_variable_set(:@@schema, self)
     self.to_proc[base_model]
-    base_model.schema = self
     base_model.auto_upgrade!
     return base_model
   end

@@ -9,11 +9,7 @@ module Yogo
       
       module ClassMethods
         def schema
-          @schema
-        end
-
-        def schema=(value)
-          @schema=value
+          class_variable_get(:@@schema)
         end
 
         def parse_json(body)
