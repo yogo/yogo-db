@@ -1,6 +1,6 @@
 require 'dm-types'
 require 'yogo/datamapper/model/configuration'
-require 'yogo/custom_ops'
+require 'yogo/operations'
 
 class Schema
   include ::DataMapper::Resource
