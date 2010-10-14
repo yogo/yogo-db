@@ -22,6 +22,8 @@ gem 'yogo-datamapper',        :git => 'git://github.com/yogo/yogo-datamapper.git
 gem 'json'
 gem 'carrierwave'
 
+gem 'haml'
+
 gem 'racksh', :require => nil
 
 group :development, :test do

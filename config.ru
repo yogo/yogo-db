@@ -20,6 +20,8 @@ require 'yogo/data_app'
 # Load the Application Version
 APP_VERSION = IO.readlines(File.join(File.dirname(__FILE__), 'VERSION'))[0]
 
+use Rack::Session::Cookie
+
 # Make the model lookup map
 use Yogo::Rack::ModelLookup, :paths => ['schema', 'data'], :scope => lambda{ |*args| return Schema }
 

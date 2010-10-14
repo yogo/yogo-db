@@ -87,6 +87,7 @@ GEM
       json (~> 1.4.6)
       term-ansicolor (~> 1.0.5)
     git (1.2.5)
+    haml (3.0.21)
     jeweler (1.4.0)
       gemcutter (>= 0.1.0)
       git (>= 1.2.5)
@@ -172,6 +173,7 @@ DEPENDENCIES
   dm-timestamps
   dm-validations
   factory_girl
+  haml
   jeweler
   json
   rack

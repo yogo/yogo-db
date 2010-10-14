@@ -2,16 +2,41 @@ require 'sinatra'
 
 module Yogo
   class SchemaApp < ::Sinatra::Base
-    before do
-      content_type :json
+    set :haml, { :format => :html5 }
+    set :views, File.dirname(__FILE__) + '/views'
+    
+    # before do
+    #   content_type :json
+    # end
+    # 
+    configure(:development) do
+      register Sinatra::Reloader
+      # also_reload "app/models/*.rb"
+      # dont_relo
+      # ad "lib/**/*.rb"
     end
+    
 
     get '/schema/?' do
-      { :content => Schema.all.to_json(:to_json => false) }.to_json
+      types = Sinatra::Request.new(env).accept()
+      if types.include?('application/json')
+         content_type :json
+        { :content => Schema.all.to_json(:to_json => false) }.to_json
+      else
+        @schemas = Schema.all
+        haml :'schema/index.html'
+      end
     end
 
     get '/schema/:model_id/?' do
-      { :content => env['yogo.schema'] }.to_json
+      types = Sinatra::Request.new(env).accept()
+      if types.include?('application/json')
+        content_type :json
+        { :content => env['yogo.schema'] }.to_json        
+      else
+        @schema = env['yogo.schema']
+        haml :'schema/show.html'
+      end
     end
 
     post '/schema/?' do
