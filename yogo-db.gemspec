@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ryan Heimbuch"]
-  s.date = %q{2010-10-06}
+  s.date = %q{2010-10-19}
   s.description = %q{Restful interface to yogo data components}
   s.email = %q{rheimbuch@gmail.com}
   s.extra_rdoc_files = [
@@ -32,13 +32,16 @@ Gem::Specification.new do |s|
      "features/step_definitions/yogo-db_steps.rb",
      "features/support/env.rb",
      "features/yogo-db.feature",
-     "lib/yogo/custom_ops.rb",
      "lib/yogo/data/default_methods.rb",
      "lib/yogo/data_app.rb",
      "lib/yogo/db/.gitdir",
      "lib/yogo/model/schema.rb",
+     "lib/yogo/operations.rb",
+     "lib/yogo/operations/basic.rb",
+     "lib/yogo/operations/file.rb",
      "lib/yogo/rack/model_lookup.rb",
      "lib/yogo/schema_app.rb",
+     "lib/yogo_db.rb",
      "spec/factories/schema.rb",
      "spec/helpers/request_helper.rb",
      "spec/model/schema_spec.rb",
@@ -73,12 +76,17 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<activesupport>, [">= 0"])
       s.add_runtime_dependency(%q<dm-core>, [">= 0"])
       s.add_runtime_dependency(%q<dm-migrations>, [">= 0"])
+      s.add_runtime_dependency(%q<dm-serializer>, [">= 0"])
+      s.add_runtime_dependency(%q<dm-timestamps>, [">= 0"])
       s.add_runtime_dependency(%q<dm-validations>, [">= 0"])
       s.add_runtime_dependency(%q<dm-sqlite-adapter>, [">= 0"])
       s.add_runtime_dependency(%q<dm-postgres-adapter>, [">= 0"])
       s.add_runtime_dependency(%q<yogo-operation>, [">= 0"])
       s.add_runtime_dependency(%q<yogo-datamapper>, [">= 0"])
       s.add_runtime_dependency(%q<json>, [">= 0"])
+      s.add_runtime_dependency(%q<carrierwave>, [">= 0"])
+      s.add_runtime_dependency(%q<haml>, [">= 0"])
+      s.add_runtime_dependency(%q<racksh>, [">= 0"])
       s.add_development_dependency(%q<rake>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
       s.add_development_dependency(%q<yard>, [">= 0"])
@@ -93,12 +101,17 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<activesupport>, [">= 0"])
       s.add_dependency(%q<dm-core>, [">= 0"])
       s.add_dependency(%q<dm-migrations>, [">= 0"])
+      s.add_dependency(%q<dm-serializer>, [">= 0"])
+      s.add_dependency(%q<dm-timestamps>, [">= 0"])
       s.add_dependency(%q<dm-validations>, [">= 0"])
       s.add_dependency(%q<dm-sqlite-adapter>, [">= 0"])
       s.add_dependency(%q<dm-postgres-adapter>, [">= 0"])
       s.add_dependency(%q<yogo-operation>, [">= 0"])
       s.add_dependency(%q<yogo-datamapper>, [">= 0"])
       s.add_dependency(%q<json>, [">= 0"])
+      s.add_dependency(%q<carrierwave>, [">= 0"])
+      s.add_dependency(%q<haml>, [">= 0"])
+      s.add_dependency(%q<racksh>, [">= 0"])
       s.add_dependency(%q<rake>, [">= 0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
       s.add_dependency(%q<yard>, [">= 0"])
@@ -114,12 +127,17 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<activesupport>, [">= 0"])
     s.add_dependency(%q<dm-core>, [">= 0"])
     s.add_dependency(%q<dm-migrations>, [">= 0"])
+    s.add_dependency(%q<dm-serializer>, [">= 0"])
+    s.add_dependency(%q<dm-timestamps>, [">= 0"])
     s.add_dependency(%q<dm-validations>, [">= 0"])
     s.add_dependency(%q<dm-sqlite-adapter>, [">= 0"])
     s.add_dependency(%q<dm-postgres-adapter>, [">= 0"])
     s.add_dependency(%q<yogo-operation>, [">= 0"])
     s.add_dependency(%q<yogo-datamapper>, [">= 0"])
     s.add_dependency(%q<json>, [">= 0"])
+    s.add_dependency(%q<carrierwave>, [">= 0"])
+    s.add_dependency(%q<haml>, [">= 0"])
+    s.add_dependency(%q<racksh>, [">= 0"])
     s.add_dependency(%q<rake>, [">= 0"])
     s.add_dependency(%q<jeweler>, [">= 0"])
     s.add_dependency(%q<yard>, [">= 0"])
