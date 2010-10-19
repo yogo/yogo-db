@@ -32,6 +32,7 @@ Gem::Specification.new do |s|
      "features/step_definitions/yogo-db_steps.rb",
      "features/support/env.rb",
      "features/yogo-db.feature",
+     "lib/yogo-db.rb",
      "lib/yogo/data/default_methods.rb",
      "lib/yogo/data_app.rb",
      "lib/yogo/db/.gitdir",
@@ -41,7 +42,6 @@ Gem::Specification.new do |s|
      "lib/yogo/operations/file.rb",
      "lib/yogo/rack/model_lookup.rb",
      "lib/yogo/schema_app.rb",
-     "lib/yogo_db.rb",
      "spec/factories/schema.rb",
      "spec/helpers/request_helper.rb",
      "spec/model/schema_spec.rb",
@@ -85,7 +85,6 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<yogo-datamapper>, [">= 0"])
       s.add_runtime_dependency(%q<json>, [">= 0"])
       s.add_runtime_dependency(%q<carrierwave>, [">= 0"])
-      s.add_runtime_dependency(%q<haml>, [">= 0"])
       s.add_runtime_dependency(%q<racksh>, [">= 0"])
       s.add_development_dependency(%q<rake>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
@@ -110,7 +109,6 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<yogo-datamapper>, [">= 0"])
       s.add_dependency(%q<json>, [">= 0"])
       s.add_dependency(%q<carrierwave>, [">= 0"])
-      s.add_dependency(%q<haml>, [">= 0"])
       s.add_dependency(%q<racksh>, [">= 0"])
       s.add_dependency(%q<rake>, [">= 0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
@@ -136,7 +134,6 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<yogo-datamapper>, [">= 0"])
     s.add_dependency(%q<json>, [">= 0"])
     s.add_dependency(%q<carrierwave>, [">= 0"])
-    s.add_dependency(%q<haml>, [">= 0"])
     s.add_dependency(%q<racksh>, [">= 0"])
     s.add_dependency(%q<rake>, [">= 0"])
     s.add_dependency(%q<jeweler>, [">= 0"])
