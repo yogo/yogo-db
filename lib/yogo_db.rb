@@ -1,9 +1,13 @@
-require 'activesupport'
-require 'dm-core'
-require 'dm-migrations'
-require 'dm-validations'
-require 'dm-sqlite-adapter'
-require 'dm-postgres-adapter'
-require 'yogo-operation'
-require 'yogo-datamapper'
-require 'json'
+%w[
+    activesupport
+    dm-core
+    dm-migrations
+    dm-validations
+    dm-sqlite-adapter
+    dm-postgres-adapter
+    yogo-operation
+    yogo-datamapper
+    json
+  ].each do |lib|
+    require lib
+  end

@@ -6,6 +6,7 @@ require 'bundler/setup'
 Bundler.require(:default, ENV['RACK_ENV'] || :test )
 
 # Mess with load paths
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..'))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 
 require 'rspec/core'

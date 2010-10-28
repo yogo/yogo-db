@@ -14,39 +14,39 @@ Gem::Specification.new do |s|
   s.email = %q{rheimbuch@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE",
-     "README.rdoc"
+    "README.rdoc"
   ]
   s.files = [
     ".document",
-     ".gitignore",
-     ".rspec",
-     "Gemfile",
-     "Gemfile.lock",
-     "LICENSE",
-     "README.rdoc",
-     "Rakefile",
-     "VERSION",
-     "config.ru",
-     "config/database.yml",
-     "config/datamapper.rb",
-     "features/step_definitions/yogo-db_steps.rb",
-     "features/support/env.rb",
-     "features/yogo-db.feature",
-     "lib/yogo/custom_ops.rb",
-     "lib/yogo/data/default_methods.rb",
-     "lib/yogo/data_app.rb",
-     "lib/yogo/db/.gitdir",
-     "lib/yogo/model/schema.rb",
-     "lib/yogo/rack/model_lookup.rb",
-     "lib/yogo/schema_app.rb",
-     "spec/factories/schema.rb",
-     "spec/helpers/request_helper.rb",
-     "spec/model/schema_spec.rb",
-     "spec/spec_helper.rb",
-     "spec/yogo/data_app_spec.rb",
-     "spec/yogo/model_lookup_spec.rb",
-     "spec/yogo/schema_app_spec.rb",
-     "yogo-db.gemspec"
+    ".gitignore",
+    ".rspec",
+    "Gemfile",
+    "Gemfile.lock",
+    "LICENSE",
+    "README.rdoc",
+    "Rakefile",
+    "VERSION",
+    "config.ru",
+    "config/database.yml",
+    "config/datamapper.rb",
+    "features/step_definitions/yogo-db_steps.rb",
+    "features/support/env.rb",
+    "features/yogo-db.feature",
+    "lib/yogo/custom_ops.rb",
+    "lib/yogo/data/default_methods.rb",
+    "lib/yogo/data_app.rb",
+    "lib/yogo/db/.gitdir",
+    "lib/yogo/model/schema.rb",
+    "lib/yogo/rack/model_lookup.rb",
+    "lib/yogo/schema_app.rb",
+    "spec/factories/schema.rb",
+    "spec/helpers/request_helper.rb",
+    "spec/model/schema_spec.rb",
+    "spec/spec_helper.rb",
+    "spec/yogo/data_app_spec.rb",
+    "spec/yogo/model_lookup_spec.rb",
+    "spec/yogo/schema_app_spec.rb",
+    "yogo-db.gemspec"
   ]
   s.homepage = %q{http://github.com/yogo/yogo-db}
   s.rdoc_options = ["--charset=UTF-8"]
@@ -55,12 +55,12 @@ Gem::Specification.new do |s|
   s.summary = %q{Yogo DB Rest components}
   s.test_files = [
     "spec/factories/schema.rb",
-     "spec/helpers/request_helper.rb",
-     "spec/model/schema_spec.rb",
-     "spec/spec_helper.rb",
-     "spec/yogo/data_app_spec.rb",
-     "spec/yogo/model_lookup_spec.rb",
-     "spec/yogo/schema_app_spec.rb"
+    "spec/helpers/request_helper.rb",
+    "spec/model/schema_spec.rb",
+    "spec/spec_helper.rb",
+    "spec/yogo/data_app_spec.rb",
+    "spec/yogo/model_lookup_spec.rb",
+    "spec/yogo/schema_app_spec.rb"
   ]
 
   if s.respond_to? :specification_version then
@@ -76,17 +76,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<dm-validations>, [">= 0"])
       s.add_runtime_dependency(%q<dm-sqlite-adapter>, [">= 0"])
       s.add_runtime_dependency(%q<dm-postgres-adapter>, [">= 0"])
-      s.add_runtime_dependency(%q<yogo-operation>, [">= 0"])
-      s.add_runtime_dependency(%q<yogo-datamapper>, [">= 0"])
       s.add_runtime_dependency(%q<json>, [">= 0"])
-      s.add_development_dependency(%q<rake>, [">= 0"])
-      s.add_development_dependency(%q<jeweler>, [">= 0"])
-      s.add_development_dependency(%q<yard>, [">= 0"])
-      s.add_development_dependency(%q<sinatra-reloader>, [">= 0"])
-      s.add_development_dependency(%q<ruby-debug19>, [">= 0"])
-      s.add_development_dependency(%q<rack-debug19>, [">= 0"])
-      s.add_development_dependency(%q<ruby-debug>, [">= 0"])
-      s.add_development_dependency(%q<rack-debug>, [">= 0"])
     else
       s.add_dependency(%q<sinatra>, [">= 0"])
       s.add_dependency(%q<rack>, [">= 0"])
@@ -96,17 +86,11 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<dm-validations>, [">= 0"])
       s.add_dependency(%q<dm-sqlite-adapter>, [">= 0"])
       s.add_dependency(%q<dm-postgres-adapter>, [">= 0"])
-      s.add_dependency(%q<yogo-operation>, [">= 0"])
-      s.add_dependency(%q<yogo-datamapper>, [">= 0"])
       s.add_dependency(%q<json>, [">= 0"])
       s.add_dependency(%q<rake>, [">= 0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
       s.add_dependency(%q<yard>, [">= 0"])
       s.add_dependency(%q<sinatra-reloader>, [">= 0"])
-      s.add_dependency(%q<ruby-debug19>, [">= 0"])
-      s.add_dependency(%q<rack-debug19>, [">= 0"])
-      s.add_dependency(%q<ruby-debug>, [">= 0"])
-      s.add_dependency(%q<rack-debug>, [">= 0"])
     end
   else
     s.add_dependency(%q<sinatra>, [">= 0"])
@@ -117,17 +101,11 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<dm-validations>, [">= 0"])
     s.add_dependency(%q<dm-sqlite-adapter>, [">= 0"])
     s.add_dependency(%q<dm-postgres-adapter>, [">= 0"])
-    s.add_dependency(%q<yogo-operation>, [">= 0"])
-    s.add_dependency(%q<yogo-datamapper>, [">= 0"])
     s.add_dependency(%q<json>, [">= 0"])
     s.add_dependency(%q<rake>, [">= 0"])
     s.add_dependency(%q<jeweler>, [">= 0"])
     s.add_dependency(%q<yard>, [">= 0"])
     s.add_dependency(%q<sinatra-reloader>, [">= 0"])
-    s.add_dependency(%q<ruby-debug19>, [">= 0"])
-    s.add_dependency(%q<rack-debug19>, [">= 0"])
-    s.add_dependency(%q<ruby-debug>, [">= 0"])
-    s.add_dependency(%q<rack-debug>, [">= 0"])
   end
 end
 
