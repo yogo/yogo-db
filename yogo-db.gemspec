@@ -32,11 +32,14 @@ Gem::Specification.new do |s|
     "features/step_definitions/yogo-db_steps.rb",
     "features/support/env.rb",
     "features/yogo-db.feature",
-    "lib/yogo/custom_ops.rb",
+    "lib/yogo-db.rb",
     "lib/yogo/data/default_methods.rb",
     "lib/yogo/data_app.rb",
     "lib/yogo/db/.gitdir",
     "lib/yogo/model/schema.rb",
+    "lib/yogo/operations.rb",
+    "lib/yogo/operations/basic.rb",
+    "lib/yogo/operations/file.rb",
     "lib/yogo/rack/model_lookup.rb",
     "lib/yogo/schema_app.rb",
     "spec/factories/schema.rb",
@@ -47,7 +50,6 @@ Gem::Specification.new do |s|
     "spec/yogo/model_lookup_spec.rb",
     "spec/yogo/schema_app_spec.rb",
     "yogo-db.gemspec"
-
   ]
   s.homepage = %q{http://github.com/yogo/yogo-db}
   s.rdoc_options = ["--charset=UTF-8"]
@@ -69,54 +71,51 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<sinatra>, [">= 0"])
-      s.add_runtime_dependency(%q<rack>, [">= 0"])
-      s.add_runtime_dependency(%q<activesupport>, [">= 0"])
-      s.add_runtime_dependency(%q<dm-core>, [">= 0"])
-      s.add_runtime_dependency(%q<dm-migrations>, [">= 0"])
-      s.add_runtime_dependency(%q<dm-serializer>, [">= 0"])
-      s.add_runtime_dependency(%q<dm-timestamps>, [">= 0"])
-      s.add_runtime_dependency(%q<dm-validations>, [">= 0"])
-      s.add_runtime_dependency(%q<dm-sqlite-adapter>, [">= 0"])
-      s.add_runtime_dependency(%q<dm-postgres-adapter>, [">= 0"])
-      s.add_runtime_dependency(%q<json>, [">= 0"])
+      s.add_runtime_dependency(   %q<sinatra>,              [">= 0"])
+      s.add_runtime_dependency(   %q<rack>,                 [">= 0"])
+      s.add_runtime_dependency(   %q<activesupport>,        [">= 0"])
+      s.add_runtime_dependency(   %q<dm-core>,              [">= 0"])
+      s.add_runtime_dependency(   %q<dm-migrations>,        [">= 0"])
+      s.add_runtime_dependency(   %q<dm-serializer>,        [">= 0"])
+      s.add_runtime_dependency(   %q<dm-timestamps>,        [">= 0"])
+      s.add_runtime_dependency(   %q<dm-validations>,       [">= 0"])
+      s.add_runtime_dependency(   %q<dm-sqlite-adapter>,    [">= 0"])
+      s.add_runtime_dependency(   %q<dm-postgres-adapter>,  [">= 0"])
+      s.add_runtime_dependency(   %q<yogo-operation>,       [">= 0"])
+      s.add_runtime_dependency(   %q<yogo-datamapper>,      [">= 0"])
+      s.add_runtime_dependency(   %q<json>,                 [">= 0"])
+      s.add_runtime_dependency(   %q<carrierwave>,          [">= 0"])
     else
-      s.add_dependency(%q<sinatra>, [">= 0"])
-      s.add_dependency(%q<rack>, [">= 0"])
-      s.add_dependency(%q<activesupport>, [">= 0"])
-      s.add_dependency(%q<dm-core>, [">= 0"])
-      s.add_dependency(%q<dm-migrations>, [">= 0"])
-      s.add_dependency(%q<dm-serializer>, [">= 0"])
-      s.add_dependency(%q<dm-timestamps>, [">= 0"])
-      s.add_dependency(%q<dm-validations>, [">= 0"])
-      s.add_dependency(%q<dm-sqlite-adapter>, [">= 0"])
-      s.add_dependency(%q<dm-postgres-adapter>, [">= 0"])
-      s.add_dependency(%q<json>, [">= 0"])
-      s.add_dependency(%q<carrierwave>, [">= 0"])
-      s.add_dependency(%q<racksh>, [">= 0"])
-      s.add_dependency(%q<rake>, [">= 0"])
-      s.add_dependency(%q<jeweler>, [">= 0"])
-      s.add_dependency(%q<yard>, [">= 0"])
-      s.add_dependency(%q<sinatra-reloader>, [">= 0"])
+      s.add_dependency(           %q<sinatra>,              [">= 0"])
+      s.add_dependency(           %q<rack>,                 [">= 0"])
+      s.add_dependency(           %q<activesupport>,        [">= 0"])
+      s.add_dependency(           %q<dm-core>,              [">= 0"])
+      s.add_dependency(           %q<dm-migrations>,        [">= 0"])
+      s.add_dependency(           %q<dm-serializer>,        [">= 0"])
+      s.add_dependency(           %q<dm-timestamps>,        [">= 0"])
+      s.add_dependency(           %q<dm-validations>,       [">= 0"])
+      s.add_dependency(           %q<dm-sqlite-adapter>,    [">= 0"])
+      s.add_dependency(           %q<dm-postgres-adapter>,  [">= 0"])
+      s.add_dependency(           %q<yogo-operation>,       [">= 0"])
+      s.add_dependency(           %q<yogo-datamapper>,      [">= 0"])
+      s.add_dependency(           %q<json>,                 [">= 0"])
+      s.add_dependency(           %q<carrierwave>,          [">= 0"])
     end
   else
-    s.add_dependency(%q<sinatra>, [">= 0"])
-    s.add_dependency(%q<rack>, [">= 0"])
-    s.add_dependency(%q<activesupport>, [">= 0"])
-    s.add_dependency(%q<dm-core>, [">= 0"])
-    s.add_dependency(%q<dm-migrations>, [">= 0"])
-    s.add_dependency(%q<dm-serializer>, [">= 0"])
-    s.add_dependency(%q<dm-timestamps>, [">= 0"])
-    s.add_dependency(%q<dm-validations>, [">= 0"])
-    s.add_dependency(%q<dm-sqlite-adapter>, [">= 0"])
-    s.add_dependency(%q<dm-postgres-adapter>, [">= 0"])
-    s.add_dependency(%q<json>, [">= 0"])
-    s.add_dependency(%q<carrierwave>, [">= 0"])
-    s.add_dependency(%q<racksh>, [">= 0"])
-    s.add_dependency(%q<rake>, [">= 0"])
-    s.add_dependency(%q<jeweler>, [">= 0"])
-    s.add_dependency(%q<yard>, [">= 0"])
-    s.add_dependency(%q<sinatra-reloader>, [">= 0"])
+    s.add_dependency(             %q<sinatra>,              [">= 0"])
+    s.add_dependency(             %q<rack>,                 [">= 0"])
+    s.add_dependency(             %q<activesupport>,        [">= 0"])
+    s.add_dependency(             %q<dm-core>,              [">= 0"])
+    s.add_dependency(             %q<dm-migrations>,        [">= 0"])
+    s.add_dependency(             %q<dm-serializer>,        [">= 0"])
+    s.add_dependency(             %q<dm-timestamps>,        [">= 0"])
+    s.add_dependency(             %q<dm-validations>,       [">= 0"])
+    s.add_dependency(             %q<dm-sqlite-adapter>,    [">= 0"])
+    s.add_dependency(             %q<dm-postgres-adapter>,  [">= 0"])
+    s.add_dependency(             %q<yogo-operation>,       [">= 0"])
+    s.add_dependency(             %q<yogo-datamapper>,      [">= 0"])
+    s.add_dependency(             %q<json>,                 [">= 0"])
+    s.add_dependency(             %q<carrierwave>,          [">= 0"])
   end
 end
 

@@ -1,16 +1,13 @@
 source :rubygems
-
 gemspec
 
-gem 'yogo-operation',         :git => 'git://github.com/yogo/yogo-operation.git',
-                              :require => nil
-gem 'yogo-datamapper',        :git => 'git://github.com/yogo/yogo-datamapper.git',
-                              :require => nil
-
+#
+# Development and Test Dependencies
+#
 group :development, :test do
-  platforms(:ruby_19) do
-    gem 'ruby-debug19',       :require => 'ruby-debug'
-    gem 'rack-debug19',       :require => 'rack-debug'
+  platforms(:mri_19) do
+    gem "ruby-debug19",       :require => "ruby-debug"
+    gem "rack-debug19",       :require => "rack-debug"
   end
 
   platforms(:ruby_18) do
@@ -19,12 +16,19 @@ group :development, :test do
   end
 end
 
-RSPEC_VERSION = '~> 2.0.0.beta.22'
+group :development do
+  gem "racksh"
+  gem "sinatra-reloader"
+  gem "rake"
+  gem "jeweler"
+  gem "yard"
+  gem "yardstick"
+end
 
 group :test do
-  gem "rspec",                RSPEC_VERSION
-  gem "autotest"
+  gem "rspec"
   gem "rack-test"
   gem "cucumber"
+  gem "autotest"
   gem 'factory_girl'
 end

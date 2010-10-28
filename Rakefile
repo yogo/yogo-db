@@ -1,13 +1,11 @@
-require 'rubygems'
-
 begin
   require 'bundler'
   Bundler.setup
+  Bundler::GemHelper.install_tasks
 rescue LoadError
   puts "Bundler is not intalled. Install with: gem install bundler"
 end
 
-require 'rake'
 begin
   require 'rack-debug/tasks'
 rescue LoadError
