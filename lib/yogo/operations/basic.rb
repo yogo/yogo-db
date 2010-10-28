@@ -2,8 +2,8 @@ require 'yogo/operation'
 require 'yogo/data/default_methods'
 
 # Move into DataMapper::Property extension file
-unless ::DataMapper::Property.accepted_options.include?(:label)
-  ::DataMapper::Property.accept_options(:label)
+unless ::DataMapper::Property.accepted_options.include?('label')
+  ::DataMapper::Property.accept_options('label')
 end
 
 module Operations

@@ -7,7 +7,7 @@ module Yogo
     end
 
     get '/data/:model_id/?' do
-      { :content => env['yogo.resource'].all }.to_json
+      { :content => env['yogo.resource'].all.to_json(:to_json => false) }.to_json
     end
 
     get '/data/:model_id/:id' do

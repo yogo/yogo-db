@@ -7,21 +7,21 @@ module Yogo
     end
 
     get '/schema/?' do
-      { :content => Schema.all }.to_json
+      { :content => Schema.all.to_json(:to_json => false) }.to_json
     end
 
     get '/schema/:model_id/?' do
       { :content => env['yogo.schema'] }.to_json
     end
 
-    post '/schema' do
+    post '/schema/?' do
       opts = Schema.parse_json(request.body.read) rescue nil
       halt(401, 'Invalid Format') if opts.nil?
       schema = Schema.new(opts)
 
       halt(500, 'Could not save schema') unless schema.save
 
-      response['Location'] = "/schema/#{schema.name}"
+      response['Location'] = schema.to_url
       response.status = 201
     end
 

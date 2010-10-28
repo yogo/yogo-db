@@ -21,7 +21,7 @@ require 'yogo/data_app'
 APP_VERSION = IO.readlines(File.join(File.dirname(__FILE__), 'VERSION'))[0]
 
 # Make the model lookup map
-use Yogo::Rack::ModelLookup, :paths => ['schema', 'data']
+use Yogo::Rack::ModelLookup, :paths => ['schema', 'data'], :scope => lambda{ |*args| return Schema }
 
 # Run the app
 run Rack::Cascade.new([Yogo::SchemaApp, Yogo::DataApp])

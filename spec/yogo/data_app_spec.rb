@@ -21,10 +21,11 @@ describe Yogo::DataApp do
   describe "when retrieving /data/:model_id" do
 
     it "should return all data" do
+      header 'accepts', 'application/json'
       get "/data/#{@cur_schema.name}", :headers => {'accepts' => 'application/json'}
 
       last_response.should be_ok
-      last_response.headers['content-type'].should eql 'application/json'
+      last_response.headers['content-type'].should eql 'application/json;charset=utf-8'
     end
   end
 

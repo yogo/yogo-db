@@ -1,6 +1,6 @@
 require 'dm-types'
 require 'yogo/datamapper/model/configuration'
-require 'yogo/custom_ops'
+require 'yogo/operations'
 
 class Schema
   include ::DataMapper::Resource
@@ -32,7 +32,8 @@ class Schema
   end
   
   def operation(op_name, *args)
-    op_def = [op_name.to_s, args].flatten
+    op_def = replace_nil_items([op_name.to_s, args].flatten)
+    
     unless self.operation_definitions.include?(op_def)
       # We need to dup this else the model doesn't get marked as dirty and won't save.
       self.operation_definitions =  self.operation_definitions.dup << op_def
@@ -47,13 +48,25 @@ class Schema
     "/schema/#{self.name}"
   end
   
-  def to_json(*a)
+  def to_json(*args)
+    options = args.first || {}
+    options = options.to_h if options.respond_to?(:to_h)
+    
+    result = as_json(*args)
+    
+    if options.fetch(:to_json, true)
+      result.to_json
+    else
+      result
+    end
+  end
+  
+  def as_json(*a)
     {
       :guid => self.to_url,
       :name => self.name,
       :operations => self.operation_definitions,
-      
-    }.to_json(*a)
+    }
   end
   
   REQUIRED_JSON_KEYS=[:name, :operations]
@@ -100,9 +113,9 @@ class Schema
         end
       RUBY
     end
-    # Yogo::DataMapper::Model::Operations::DefaultMethods[base_model]
+
+    base_model.class_variable_set(:@@schema, self)
     self.to_proc[base_model]
-    base_model.schema = self
     base_model.auto_upgrade!
     return base_model
   end
@@ -113,5 +126,13 @@ class Schema
   
   def destroy_data_model_bucket
     data_model.auto_migrate_down!
+  end
+  
+  def generate_column_uuid
+    "col_#{UUIDTools::UUID.timestamp_create.to_s.gsub('-', '_')}"
+  end
+  
+  def replace_nil_items(array)
+    array.map{|i| i.nil? ? generate_column_uuid : i }
   end
 end # Configuration
