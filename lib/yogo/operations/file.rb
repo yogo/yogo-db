@@ -6,7 +6,7 @@ Yogo::DataMapper::Model::Operations['add/file'] = Yogo::Op.on(::DataMapper::Mode
   uploader.storage(:file)
   uploader.class_eval %{
     def store_dir
-      File.join('assets', '#{model.schema.id}', #{name})
+      File.join('assets', '#{model.schema.id}', '#{name}')
     end
     
     def filename
@@ -20,7 +20,7 @@ Yogo::DataMapper::Model::Operations['add/file'] = Yogo::Op.on(::DataMapper::Mode
     without_auto_validations do
       # property :content_type,       String
       # property :description,        String
-      property "#{name}_asset_file".to_sym,         String
+      property "#{name}_asset_file".to_sym,         String, options
       property "#{name}_original_filename".to_sym,  String
     end
     
@@ -33,7 +33,8 @@ Yogo::DataMapper::Model::Operations['add/file'] = Yogo::Op.on(::DataMapper::Mode
     private 
   
     def set_#{name}_original_filename
-      attribute_set(:#{name}_original_filename, #{name}.original_filename)
+      original_filename = #{name}.send(:original_filename)
+      attribute_set(:#{name}_original_filename, original_filename)
     end
   }, __FILE__, __LINE__+1
 
