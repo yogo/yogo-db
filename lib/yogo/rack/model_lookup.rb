@@ -9,7 +9,7 @@ module Yogo
         paths = options[:paths] || ['data']
         @app = app
         @scope = options[:scope] || lambda { |*args| return Schema }
-        @base_regexp = /^\/(#{paths.join('|')})\/(([a-zA-Z0-9]|-|_)+)/
+        @base_regexp = /^\/(#{paths.join('|')})\/((\w|-|\s)+)/
       end
 
       def call(env)

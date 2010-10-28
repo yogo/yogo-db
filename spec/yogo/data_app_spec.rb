@@ -25,7 +25,7 @@ describe Yogo::DataApp do
       get "/data/#{@cur_schema.name}", :headers => {'accepts' => 'application/json'}
 
       last_response.should be_ok
-      last_response.headers['content-type'].should eql 'application/json'
+      last_response.headers['content-type'].should eql 'application/json;charset=utf-8'
     end
   end
 

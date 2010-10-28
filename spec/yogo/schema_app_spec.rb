@@ -17,7 +17,7 @@ describe Yogo::SchemaApp do
       get '/schema'
 
       last_response.should be_ok
-      last_response.headers['content-type'].should eql 'application/json'
+      last_response.headers['content-type'].should eql 'application/json;charset=utf-8'
     end
   end
 
