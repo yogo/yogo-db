@@ -81,8 +81,8 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(   %q<dm-validations>,       [">= 0"])
       s.add_runtime_dependency(   %q<dm-sqlite-adapter>,    [">= 0"])
       s.add_runtime_dependency(   %q<dm-postgres-adapter>,  [">= 0"])
-      s.add_runtime_dependency(   %q<yogo-operation>,       [">= 0"])
-      s.add_runtime_dependency(   %q<yogo-datamapper>,      [">= 0"])
+#      s.add_runtime_dependency(   %q<yogo-operation>,       [">= 0"])
+#      s.add_runtime_dependency(   %q<yogo-datamapper>,      [">= 0"])
       s.add_runtime_dependency(   %q<json>,                 [">= 0"])
       s.add_runtime_dependency(   %q<carrierwave>,          [">= 0"])
     else
@@ -96,8 +96,8 @@ Gem::Specification.new do |s|
       s.add_dependency(           %q<dm-validations>,       [">= 0"])
       s.add_dependency(           %q<dm-sqlite-adapter>,    [">= 0"])
       s.add_dependency(           %q<dm-postgres-adapter>,  [">= 0"])
-      s.add_dependency(           %q<yogo-operation>,       [">= 0"])
-      s.add_dependency(           %q<yogo-datamapper>,      [">= 0"])
+#      s.add_dependency(           %q<yogo-operation>,       [">= 0"])
+#      s.add_dependency(           %q<yogo-datamapper>,      [">= 0"])
       s.add_dependency(           %q<json>,                 [">= 0"])
       s.add_dependency(           %q<carrierwave>,          [">= 0"])
     end
@@ -112,8 +112,8 @@ Gem::Specification.new do |s|
     s.add_dependency(             %q<dm-validations>,       [">= 0"])
     s.add_dependency(             %q<dm-sqlite-adapter>,    [">= 0"])
     s.add_dependency(             %q<dm-postgres-adapter>,  [">= 0"])
-    s.add_dependency(             %q<yogo-operation>,       [">= 0"])
-    s.add_dependency(             %q<yogo-datamapper>,      [">= 0"])
+#    s.add_dependency(             %q<yogo-operation>,       [">= 0"])
+#    s.add_dependency(             %q<yogo-datamapper>,      [">= 0"])
     s.add_dependency(             %q<json>,                 [">= 0"])
     s.add_dependency(             %q<carrierwave>,          [">= 0"])
   end

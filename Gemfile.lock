@@ -1,21 +1,21 @@
 GIT
   remote: git://github.com/yogo/yogo-datamapper.git
-  revision: b2ff5468ad51c95b87bbbe809195f2b61e63db53
+  revision: f3d0dbfbc54f1bf43873b099d0f61b7378b77c2c
   specs:
     yogo-datamapper (0.1.0)
-      dm-aggregates (~> 1.0.0)
-      dm-core (~> 1.0.0)
-      dm-is-remixable (~> 1.0.0)
-      dm-migrations (~> 1.0.0)
-      dm-timestamps (~> 1.0.0)
-      dm-types (~> 1.0.0)
-      dm-validations (~> 1.0.0)
+      dm-aggregates (~> 1.0.2)
+      dm-core (~> 1.0.2)
+      dm-is-remixable
+      dm-migrations
+      dm-timestamps
+      dm-types (~> 1.0.2)
+      dm-validations
       yogo-operation
       yogo-support
 
 GIT
   remote: git://github.com/yogo/yogo-operation.git
-  revision: 957671d00aec582c463a9687fe679358c7826a2c
+  revision: 1f2fbbeb4d136011ad7d819d8ed54eeee2bfc91b
   specs:
     yogo-operation (0.1.2)
       dataflow
@@ -26,6 +26,7 @@ PATH
   specs:
     yogo-db (0.0.0)
       activesupport
+      carrierwave
       dm-core
       dm-migrations
       dm-postgres-adapter
@@ -44,7 +45,10 @@ GEM
     addressable (2.2.2)
     archive-tar-minitar (0.5.2)
     autotest (4.4.1)
+    backports (1.18.2)
     builder (2.1.2)
+    carrierwave (0.5.0)
+      activesupport (~> 3.0.0)
     columnize (0.3.1)
     cucumber (0.9.3)
       builder (~> 2.1.2)
@@ -95,14 +99,22 @@ GEM
     extlib (0.9.15)
     factory_girl (1.3.2)
     fastercsv (1.5.3)
+    gemcutter (0.6.1)
     gherkin (2.2.9)
       json (~> 1.4.6)
       term-ansicolor (~> 1.0.5)
+    git (1.2.5)
+    jeweler (1.4.0)
+      gemcutter (>= 0.1.0)
+      git (>= 1.2.5)
+      rubyforge (>= 2.0.0)
     json (1.4.6)
     json_pure (1.4.6)
     linecache (0.43)
     linecache19 (0.5.11)
       ruby_core_source (>= 0.1.4)
+    monkey-lib (0.5.4)
+      backports
     rack (1.2.1)
     rack-debug (1.4.2)
       rack (>= 1.0)
@@ -112,6 +124,10 @@ GEM
       ruby-debug19 (>= 0.11.6)
     rack-test (0.5.6)
       rack (>= 1.0)
+    racksh (0.9.8)
+      rack (>= 1.0)
+      rack-test (>= 0.5)
+    rake (0.8.7)
     rspec (2.0.1)
       rspec-core (~> 2.0.1)
       rspec-expectations (~> 2.0.1)
@@ -137,13 +153,28 @@ GEM
       ruby-debug-base19 (>= 0.11.19)
     ruby_core_source (0.1.4)
       archive-tar-minitar (>= 0.5.2)
+    rubyforge (2.0.4)
+      json_pure (>= 1.1.7)
     sinatra (1.1.0)
       rack (~> 1.1)
       tilt (~> 1.1)
+    sinatra-advanced-routes (0.5.1)
+      monkey-lib (~> 0.5.0)
+      sinatra (~> 1.0)
+      sinatra-sugar (~> 0.5.0)
+    sinatra-reloader (0.5.0)
+      sinatra (~> 1.0)
+      sinatra-advanced-routes (~> 0.5.0)
+    sinatra-sugar (0.5.0)
+      monkey-lib (~> 0.5.0)
+      sinatra (~> 1.0)
     stringex (1.1.0)
     term-ansicolor (1.0.5)
     tilt (1.1)
     uuidtools (2.1.1)
+    yard (0.6.1)
+    yardstick (0.1.0)
+      yard (~> 0.2)
     yogo-support (0.1.1)
 
 PLATFORMS
@@ -152,6 +183,7 @@ PLATFORMS
 DEPENDENCIES
   activesupport
   autotest
+  carrierwave
   cucumber
   dm-core
   dm-migrations
@@ -161,15 +193,21 @@ DEPENDENCIES
   dm-timestamps
   dm-validations
   factory_girl
+  jeweler
   json
   rack
   rack-debug
   rack-debug19
   rack-test
-  rspec (~> 2.0.0.beta.22)
+  racksh
+  rake
+  rspec
   ruby-debug
   ruby-debug19
   sinatra
+  sinatra-reloader
+  yard
+  yardstick
   yogo-datamapper!
   yogo-db!
   yogo-operation!

@@ -1,6 +1,10 @@
 source :rubygems
 gemspec
 
+gem "yogo-datamapper", :git => "git://github.com/yogo/yogo-datamapper.git"
+gem "yogo-operation", :git => "git://github.com/yogo/yogo-operation.git"
+#gem "yogo-support", :git => "git://github.com/yogo/yogo-support.git"
+
 #
 # Development and Test Dependencies
 #
@@ -16,16 +20,14 @@ group :development, :test do
   end
 end
 
-group :development do
+group :development, :test do
   gem "racksh"
   gem "sinatra-reloader"
   gem "rake"
   gem "jeweler"
   gem "yard"
   gem "yardstick"
-end
-
-group :test do
+  # Testing gems.
   gem "rspec"
   gem "rack-test"
   gem "cucumber"
