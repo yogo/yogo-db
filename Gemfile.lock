@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/yogo/yogo-datamapper.git
-  revision: f3d0dbfbc54f1bf43873b099d0f61b7378b77c2c
+  revision: 11174aae88ee017b99cee489dcf469eccb0b1771
   specs:
-    yogo-datamapper (0.1.0)
+    yogo-datamapper (0.2.0)
       dm-aggregates (~> 1.0.2)
       dm-core (~> 1.0.2)
       dm-is-remixable
@@ -15,9 +15,9 @@ GIT
 
 GIT
   remote: git://github.com/yogo/yogo-operation.git
-  revision: 1f2fbbeb4d136011ad7d819d8ed54eeee2bfc91b
+  revision: 8e96667a97964f7de1dedfba40b44a4fa9c3ccdc
   specs:
-    yogo-operation (0.1.2)
+    yogo-operation (0.2.0)
       dataflow
       yogo-support (~> 0.1.0)
 

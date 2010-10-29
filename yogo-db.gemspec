@@ -12,6 +12,11 @@ Gem::Specification.new do |s|
   s.date = %q{2010-10-19}
   s.description = %q{Restful interface to yogo data components}
   s.email = %q{rheimbuch@gmail.com}
+  s.homepage = %q{http://github.com/yogo/yogo-db}
+  s.rdoc_options = ["--charset=UTF-8"]
+  s.require_paths = ["lib"]
+  s.rubygems_version = %q{1.3.7}
+  s.summary = %q{Yogo DB Rest components}
   s.extra_rdoc_files = [
     "LICENSE",
     "README.rdoc"
@@ -51,11 +56,7 @@ Gem::Specification.new do |s|
     "spec/yogo/schema_app_spec.rb",
     "yogo-db.gemspec"
   ]
-  s.homepage = %q{http://github.com/yogo/yogo-db}
-  s.rdoc_options = ["--charset=UTF-8"]
-  s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.7}
-  s.summary = %q{Yogo DB Rest components}
+
   s.test_files = [
     "spec/factories/schema.rb",
     "spec/helpers/request_helper.rb",

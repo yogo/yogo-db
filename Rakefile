@@ -1,9 +1,33 @@
 begin
   require 'bundler'
   Bundler.setup
-  Bundler::GemHelper.install_tasks
 rescue LoadError
   puts "Bundler is not intalled. Install with: gem install bundler"
+end
+
+require 'jeweler'
+Jeweler::Tasks.new do |gem|
+  gem.name = %q{yogo-db}
+  gem.authors = ["Ryan Heimbuch"]
+  gem.date = %q{2010-10-19}
+  gem.description = %q{Restful interface to yogo data components}
+  gem.email = %q{rheimbuch@gmail.com}
+  gem.homepage = %q{http://github.com/yogo/yogo-db}
+  gem.summary = %q{Yogo DB Rest components}
+  gem.add_dependency(   %q<sinatra>             )
+  gem.add_dependency(   %q<rack>                )
+  gem.add_dependency(   %q<activesupport>       )
+  gem.add_dependency(   %q<dm-core>             )
+  gem.add_dependency(   %q<dm-migrations>       )
+  gem.add_dependency(   %q<dm-serializer>       )
+  gem.add_dependency(   %q<dm-timestamps>       )
+  gem.add_dependency(   %q<dm-validations>      )
+  gem.add_dependency(   %q<dm-sqlite-adapter>   )
+  gem.add_dependency(   %q<dm-postgres-adapter> )
+  # gem.add_dependency(   %q<yogo-operation>      )
+  # gem.add_dependency(   %q<yogo-datamapper>     )
+  gem.add_dependency(   %q<json>                )
+  gem.add_dependency(   %q<carrierwave>         )
 end
 
 begin
