@@ -24,7 +24,7 @@ GIT
 PATH
   remote: .
   specs:
-    yogo-db (0.0.0)
+    yogo-db (0.2.0)
       activesupport
       carrierwave
       dm-core

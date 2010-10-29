@@ -16,12 +16,6 @@ require 'rack/mock'
 
 require 'config/datamapper'
 
-begin
-  require 'ruby-debug'
-rescue Exception => e
-  puts "ruby-debug is not installed. Install it with 'gem install ruby-debug'"
-end
-
 Dir[File.join(File.dirname(__FILE__), "helpers", "**/*.rb")].each do |f|
   require f
 end
@@ -32,6 +26,5 @@ end
 
 Rspec.configure do |config|
   config.include Yogo::Spec::Helpers
-  # config.mock_with :rspec
   config.before(:all) { DataMapper.finalize.auto_migrate! }
 end
