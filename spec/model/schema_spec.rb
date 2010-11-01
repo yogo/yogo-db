@@ -2,7 +2,7 @@
 require File.join(File.dirname(__FILE__), '..', 'spec_helper')
 require 'yogo/model/schema'
 
-# Testing the middleware and how it modifies the environment
+# Testing the schema model
 describe Schema do
 
   before(:all) do
