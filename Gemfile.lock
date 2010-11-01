@@ -1,11 +1,10 @@
 PATH
   remote: .
   specs:
-    yogo-db (0.2.0)
+    yogo-db (0.4.0)
       activesupport
       carrierwave
       data_mapper (~> 1.0.2)
-      dm-is-remixable
       dm-postgres-adapter
       dm-sqlite-adapter
       json
@@ -166,14 +165,9 @@ GEM
     yard (0.6.1)
     yardstick (0.1.0)
       yard (~> 0.2)
-    yogo-datamapper (0.3.0)
-      dm-aggregates (~> 1.0.2)
-      dm-core (~> 1.0.2)
+    yogo-datamapper (0.5.0)
+      data_mapper (~> 1.0.2)
       dm-is-remixable
-      dm-migrations
-      dm-timestamps
-      dm-types (~> 1.0.2)
-      dm-validations
       yogo-operation
       yogo-support
     yogo-operation (0.1.2)
@@ -190,7 +184,6 @@ DEPENDENCIES
   carrierwave
   cucumber
   data_mapper (~> 1.0.2)
-  dm-is-remixable
   dm-postgres-adapter
   dm-sqlite-adapter
   factory_girl

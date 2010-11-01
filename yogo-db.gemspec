@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ryan Heimbuch"]
-  s.date = %q{2010-10-19}
+  s.date = %q{2010-11-01}
   s.description = %q{Restful interface to yogo data components}
   s.email = %q{rheimbuch@gmail.com}
   s.extra_rdoc_files = [
@@ -74,18 +74,22 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<sinatra>, [">= 0"])
       s.add_runtime_dependency(%q<rack>, [">= 0"])
       s.add_runtime_dependency(%q<activesupport>, [">= 0"])
-      s.add_runtime_dependency(%q<data_mapper>, [">= 0"])
+      s.add_runtime_dependency(%q<data_mapper>, ["~> 1.0.2"])
       s.add_runtime_dependency(%q<dm-sqlite-adapter>, [">= 0"])
       s.add_runtime_dependency(%q<dm-postgres-adapter>, [">= 0"])
+      s.add_runtime_dependency(%q<yogo-operation>, [">= 0"])
+      s.add_runtime_dependency(%q<yogo-datamapper>, [">= 0"])
       s.add_runtime_dependency(%q<json>, [">= 0"])
       s.add_runtime_dependency(%q<carrierwave>, [">= 0"])
     else
       s.add_dependency(%q<sinatra>, [">= 0"])
       s.add_dependency(%q<rack>, [">= 0"])
       s.add_dependency(%q<activesupport>, [">= 0"])
-      s.add_dependency(%q<data_mapper>, [">= 0"])
+      s.add_dependency(%q<data_mapper>, ["~> 1.0.2"])
       s.add_dependency(%q<dm-sqlite-adapter>, [">= 0"])
       s.add_dependency(%q<dm-postgres-adapter>, [">= 0"])
+      s.add_dependency(%q<yogo-operation>, [">= 0"])
+      s.add_dependency(%q<yogo-datamapper>, [">= 0"])
       s.add_dependency(%q<json>, [">= 0"])
       s.add_dependency(%q<carrierwave>, [">= 0"])
     end
@@ -93,9 +97,11 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<sinatra>, [">= 0"])
     s.add_dependency(%q<rack>, [">= 0"])
     s.add_dependency(%q<activesupport>, [">= 0"])
-    s.add_dependency(%q<data_mapper>, [">= 0"])
+    s.add_dependency(%q<data_mapper>, ["~> 1.0.2"])
     s.add_dependency(%q<dm-sqlite-adapter>, [">= 0"])
     s.add_dependency(%q<dm-postgres-adapter>, [">= 0"])
+    s.add_dependency(%q<yogo-operation>, [">= 0"])
+    s.add_dependency(%q<yogo-datamapper>, [">= 0"])
     s.add_dependency(%q<json>, [">= 0"])
     s.add_dependency(%q<carrierwave>, [">= 0"])
   end

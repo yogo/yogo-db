@@ -14,16 +14,16 @@ Jeweler::Tasks.new do |gem|
   gem.email = %q{rheimbuch@gmail.com}
   gem.homepage = %q{http://github.com/yogo/yogo-db}
   gem.summary = %q{Yogo DB Rest components}
-  gem.add_dependency(   %q<sinatra>             )
-  gem.add_dependency(   %q<rack>                )
-  gem.add_dependency(   %q<activesupport>       )
-  gem.add_dependency(   %q<data_mapper>         )
-  gem.add_dependency(   %q<dm-sqlite-adapter>   )
-  gem.add_dependency(   %q<dm-postgres-adapter> )
-  # gem.add_dependency(   %q<yogo-operation>      )
-  # gem.add_dependency(   %q<yogo-datamapper>     )
-  gem.add_dependency(   %q<json>                )
-  gem.add_dependency(   %q<carrierwave>         )
+  gem.add_dependency(%q<sinatra>             )
+  gem.add_dependency(%q<rack>                )
+  gem.add_dependency(%q<activesupport>       )
+  gem.add_dependency(%q<data_mapper>          , "~> 1.0.2")
+  gem.add_dependency(%q<dm-sqlite-adapter>   )
+  gem.add_dependency(%q<dm-postgres-adapter> )
+  gem.add_dependency(%q<yogo-operation>      )
+  gem.add_dependency(%q<yogo-datamapper>     )
+  gem.add_dependency(%q<json>                )
+  gem.add_dependency(%q<carrierwave>         )
 end
 
 begin
