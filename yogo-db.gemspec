@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{yogo-db}
-  s.version = "0.4.0"
+  s.version = "0.5.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ryan Heimbuch"]
-  s.date = %q{2010-11-01}
+  s.date = %q{2010-10-19}
   s.description = %q{Restful interface to yogo data components}
   s.email = %q{rheimbuch@gmail.com}
   s.extra_rdoc_files = [
