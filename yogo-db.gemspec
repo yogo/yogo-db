@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{yogo-db}
-  s.version = "0.2.0"
+  s.version = "0.4.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ryan Heimbuch"]
-  s.date = %q{2010-10-29}
+  s.date = %q{2010-10-19}
   s.description = %q{Restful interface to yogo data components}
   s.email = %q{rheimbuch@gmail.com}
   s.extra_rdoc_files = [
@@ -71,42 +71,33 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<sinatra>                          )
-      s.add_runtime_dependency(%q<rack>                             )
-      s.add_runtime_dependency(%q<activesupport>                    )
-      s.add_runtime_dependency(%q<data_mapper>        , ["~> 1.0.2"])
-      s.add_runtime_dependency(%q<dm-is-remixable>                  )
-      s.add_runtime_dependency(%q<dm-postgres-adapter>              )
-      s.add_runtime_dependency(%q<dm-sqlite-adapter>                )
-      s.add_runtime_dependency(%q<yogo-datamapper>                  )
-      s.add_runtime_dependency(%q<yogo-operation>                   )
-      s.add_runtime_dependency(%q<json>                             )
-      s.add_runtime_dependency(%q<carrierwave>                      )
+      s.add_runtime_dependency(%q<sinatra>, [">= 0"])
+      s.add_runtime_dependency(%q<rack>, [">= 0"])
+      s.add_runtime_dependency(%q<activesupport>, [">= 0"])
+      s.add_runtime_dependency(%q<data_mapper>, [">= 0"])
+      s.add_runtime_dependency(%q<dm-sqlite-adapter>, [">= 0"])
+      s.add_runtime_dependency(%q<dm-postgres-adapter>, [">= 0"])
+      s.add_runtime_dependency(%q<json>, [">= 0"])
+      s.add_runtime_dependency(%q<carrierwave>, [">= 0"])
     else
-      s.add_dependency(%q<sinatra>                                  )
-      s.add_dependency(%q<rack>                                     )
-      s.add_dependency(%q<activesupport>                            )
-      s.add_dependency(%q<data_mapper>                , ["~> 1.0.2"])
-      s.add_dependency(%q<dm-is-remixable>                          )
-      s.add_dependency(%q<dm-postgres-adapter>                      )
-      s.add_dependency(%q<dm-sqlite-adapter>                        )
-      s.add_dependency(%q<yogo-datamapper>                          )
-      s.add_dependency(%q<yogo-operation>                           )
-      s.add_dependency(%q<json>                                     )
-      s.add_dependency(%q<carrierwave>                              )
+      s.add_dependency(%q<sinatra>, [">= 0"])
+      s.add_dependency(%q<rack>, [">= 0"])
+      s.add_dependency(%q<activesupport>, [">= 0"])
+      s.add_dependency(%q<data_mapper>, [">= 0"])
+      s.add_dependency(%q<dm-sqlite-adapter>, [">= 0"])
+      s.add_dependency(%q<dm-postgres-adapter>, [">= 0"])
+      s.add_dependency(%q<json>, [">= 0"])
+      s.add_dependency(%q<carrierwave>, [">= 0"])
     end
   else
-    s.add_dependency(%q<sinatra>                                   )
-    s.add_dependency(%q<rack>                                      )
-    s.add_dependency(%q<activesupport>                             )
-    s.add_dependency(%q<data_mapper>                 , ["~> 1.0.2"])
-    s.add_dependency(%q<dm-is-remixable>                           )
-    s.add_dependency(%q<dm-postgres-adapter>                       )
-    s.add_dependency(%q<dm-sqlite-adapter>                         )
-    s.add_dependency(%q<yogo-datamapper>                           )
-    s.add_dependency(%q<yogo-operation>                            )
-    s.add_dependency(%q<json>                                      )
-    s.add_dependency(%q<carrierwave>                               )
+    s.add_dependency(%q<sinatra>, [">= 0"])
+    s.add_dependency(%q<rack>, [">= 0"])
+    s.add_dependency(%q<activesupport>, [">= 0"])
+    s.add_dependency(%q<data_mapper>, [">= 0"])
+    s.add_dependency(%q<dm-sqlite-adapter>, [">= 0"])
+    s.add_dependency(%q<dm-postgres-adapter>, [">= 0"])
+    s.add_dependency(%q<json>, [">= 0"])
+    s.add_dependency(%q<carrierwave>, [">= 0"])
   end
 end
 
