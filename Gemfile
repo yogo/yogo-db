@@ -26,7 +26,7 @@ group :development, :test do
     gem "rack-debug19",       :require => "rack-debug"
   end
 
-  platforms(:ruby_18) do
+  platforms(:mri_18) do
     gem "ruby-debug"
     gem "rack-debug"
   end

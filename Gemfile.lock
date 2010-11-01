@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    yogo-db (0.4.0)
+    yogo-db (0.5.0)
       activesupport
       carrierwave
       data_mapper (~> 1.0.2)
