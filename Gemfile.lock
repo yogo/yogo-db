@@ -1,42 +1,18 @@
-GIT
-  remote: git://github.com/yogo/yogo-datamapper.git
-  revision: 11174aae88ee017b99cee489dcf469eccb0b1771
-  specs:
-    yogo-datamapper (0.2.0)
-      dm-aggregates (~> 1.0.2)
-      dm-core (~> 1.0.2)
-      dm-is-remixable
-      dm-migrations
-      dm-timestamps
-      dm-types (~> 1.0.2)
-      dm-validations
-      yogo-operation
-      yogo-support
-
-GIT
-  remote: git://github.com/yogo/yogo-operation.git
-  revision: 8e96667a97964f7de1dedfba40b44a4fa9c3ccdc
-  specs:
-    yogo-operation (0.2.0)
-      dataflow
-      yogo-support (~> 0.1.0)
-
 PATH
   remote: .
   specs:
     yogo-db (0.2.0)
       activesupport
       carrierwave
-      dm-core
-      dm-migrations
+      data_mapper (~> 1.0.2)
+      dm-is-remixable
       dm-postgres-adapter
-      dm-serializer
       dm-sqlite-adapter
-      dm-timestamps
-      dm-validations
       json
       rack
       sinatra
+      yogo-datamapper
+      yogo-operation
 
 GEM
   remote: http://rubygems.org/
@@ -56,12 +32,25 @@ GEM
       gherkin (~> 2.2.9)
       json (~> 1.4.6)
       term-ansicolor (~> 1.0.5)
+    data_mapper (1.0.2)
+      dm-aggregates (= 1.0.2)
+      dm-constraints (= 1.0.2)
+      dm-core (= 1.0.2)
+      dm-migrations (= 1.0.2)
+      dm-serializer (= 1.0.2)
+      dm-timestamps (= 1.0.2)
+      dm-transactions (= 1.0.2)
+      dm-types (= 1.0.2)
+      dm-validations (= 1.0.2)
     data_objects (0.10.2)
       addressable (~> 2.1)
     dataflow (0.3.1)
     diff-lcs (1.1.2)
     dm-aggregates (1.0.2)
       dm-core (~> 1.0.2)
+    dm-constraints (1.0.2)
+      dm-core (~> 1.0.2)
+      dm-migrations (~> 1.0.2)
     dm-core (1.0.2)
       addressable (~> 2.2)
       extlib (~> 0.9.15)
@@ -83,6 +72,8 @@ GEM
       dm-do-adapter (~> 1.0.2)
       do_sqlite3 (~> 0.10.2)
     dm-timestamps (1.0.2)
+      dm-core (~> 1.0.2)
+    dm-transactions (1.0.2)
       dm-core (~> 1.0.2)
     dm-types (1.0.2)
       dm-core (~> 1.0.2)
@@ -175,6 +166,19 @@ GEM
     yard (0.6.1)
     yardstick (0.1.0)
       yard (~> 0.2)
+    yogo-datamapper (0.3.0)
+      dm-aggregates (~> 1.0.2)
+      dm-core (~> 1.0.2)
+      dm-is-remixable
+      dm-migrations
+      dm-timestamps
+      dm-types (~> 1.0.2)
+      dm-validations
+      yogo-operation
+      yogo-support
+    yogo-operation (0.1.2)
+      dataflow
+      yogo-support (~> 0.1.0)
     yogo-support (0.1.1)
 
 PLATFORMS
@@ -185,13 +189,10 @@ DEPENDENCIES
   autotest
   carrierwave
   cucumber
-  dm-core
-  dm-migrations
+  data_mapper (~> 1.0.2)
+  dm-is-remixable
   dm-postgres-adapter
-  dm-serializer
   dm-sqlite-adapter
-  dm-timestamps
-  dm-validations
   factory_girl
   jeweler
   json
@@ -208,6 +209,6 @@ DEPENDENCIES
   sinatra-reloader
   yard
   yardstick
-  yogo-datamapper!
+  yogo-datamapper
   yogo-db!
-  yogo-operation!
+  yogo-operation
