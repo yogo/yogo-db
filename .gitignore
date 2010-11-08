@@ -22,3 +22,5 @@ db
 .bundle
 
 ## PROJECT::SPECIFIC
+assets/*
+spec/model/assets_testing/*
